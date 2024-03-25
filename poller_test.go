@@ -204,9 +204,7 @@ func benchmarkPollerSendFrame(size int, b *testing.B) {
 
 	for i := 0; i < b.N; i++ {
 		s, err := poller.Wait(-1)
-		if err != nil {
-			b.Error(err)
-		}
+		require.NoError(b, err)
 		msg, _, err := s.RecvFrame()
 		if err != nil {
 			panic(err)

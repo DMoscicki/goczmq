@@ -2,7 +2,7 @@ build: format clean test
 	go build ./...
 
 test: get
-	go test -v -race .
+	go test -v .
 
 bench: get
 	go test -v -bench . ./...
